@@ -1,0 +1,5 @@
+services:
+  springboot:
+    build: .
+    ports:
+      - "8181:8181"
