@@ -1,11 +1,5 @@
-FROM openjdk:24-ea-6-jdk-oraclelinux9
+FROM openjdk:17-jdk-alpine
 
-WORKDIR /otp
-
-ENV PORT 8181
-
-EXPOSE 8181
-
-COPY target/*.jar /otp/app.jar
-
-ENTRYPOINT exec java $JAVA_OPT -jar app.jar
+ARG JAR_FILE=target/*jar
+COPY ./target/DockerSpring-0.0.1-SNAPSHOT.jar app.jar
+ENTRYPOINT ["java","-jar","/app.jar"]
